@@ -1,0 +1,17 @@
+# ALERT: Duplicate this file to config/config.yaml and adjust per environment.
+pipeline:
+  source: "rtsp://user:pass@camera-host/stream"
+  model_path: "models/yolov8.onnx"  # ALERT: point to your optimized model
+  target_size:
+    width: 640
+    height: 640
+alerts:
+  webhook: "https://hooks.slack.com/services/..."  # ALERT: replace with real webhook
+  threshold: 0.5
+rules:
+  - name: "people-too-many"
+    label: "person"
+    min_count: 5
+    min_score: 0.5
+    action: "webhook"
+    target: "https://hooks.slack.com/services/..."

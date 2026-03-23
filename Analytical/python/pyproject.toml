@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analytics-gateway"
+version = "0.1.0"
+description = "FastAPI layer wrapping C++ video analytics core"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic",
+  "opencv-python",
+  "numpy",
+  "httpx",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
